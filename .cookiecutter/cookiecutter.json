@@ -1,0 +1,24 @@
+{
+  "template": "https://github.com/hypothesis/cookiecutters",
+  "checkout": null,
+  "directory": "pypackage",
+  "ignore": [],
+  "extra_context": {
+    "name": "data-tasks",
+    "package_name": "data_tasks",
+    "slug": "data-tasks",
+    "short_description": "Small library to run data related scripts",
+    "python_versions": "3.10.6, 3.9.13, 3.8.13, 3.7.13",
+    "github_owner": "hypothesis",
+    "copyright_holder": "Hypothesis",
+    "visibility": "public",
+    "console_script": "no",
+    "devdata": "no",
+    "services": "no",
+    "dependabot_pip_interval": "monthly",
+    "__entry_point": "data-tasks",
+    "__github_url": "https://github.com/hypothesis/data-tasks",
+    "__pypi_url": "https://pypi.org/project/data-tasks",
+    "__hdev_project_type": "library"
+  }
+}

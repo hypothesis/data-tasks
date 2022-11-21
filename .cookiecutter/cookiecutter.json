@@ -14,7 +14,7 @@
     "visibility": "public",
     "console_script": "no",
     "devdata": "no",
-    "services": "no",
+    "services": "yes",
     "dependabot_pip_interval": "monthly",
     "__entry_point": "data-tasks",
     "__github_url": "https://github.com/hypothesis/data-tasks",

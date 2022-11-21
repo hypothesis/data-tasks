@@ -5,6 +5,10 @@ help = help::; @echo $$$$(tput bold)$(strip $(1)):$$$$(tput sgr0) $(strip $(2))
 $(call help,make help,print this help message)
 
 .PHONY: services
+$(call help,make services,start the services that the app needs)
+services: args?=up -d
+services: python
+	@tox -qe dockercompose -- $(args)
 
 .PHONY: devdata
 

@@ -1,0 +1,5 @@
+importlib_resources
+jinja2
+SQLAlchemy
+sqlparse
+tabulate

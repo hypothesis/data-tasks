@@ -5,6 +5,10 @@ help = help::; @echo $$$$(tput bold)$(strip $(1)):$$$$(tput sgr0) $(strip $(2))
 $(call help,make help,print this help message)
 
 .PHONY: services
+$(call help,make services,start the services that the app needs)
+services: args?=up -d
+services: python
+	@docker compose $(args)
 
 .PHONY: devdata
 
@@ -12,6 +16,11 @@ $(call help,make help,print this help message)
 $(call help,make shell,"launch a Python shell in this project's virtualenv")
 shell: python
 	@pyenv exec tox -qe dev
+
+.PHONY: sql
+$(call help,make sql,"Connect to the dev database with a psql shell")
+sql: python
+	@docker compose exec postgres psql --pset expanded=auto -U postgres
 
 .PHONY: lint
 $(call help,make lint,"lint the code and print any warnings")

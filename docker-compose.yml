@@ -1,0 +1,8 @@
+services:
+  postgres:
+    image: postgres:11.5-alpine
+    ports:
+      - "127.0.0.1:5439:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 1s

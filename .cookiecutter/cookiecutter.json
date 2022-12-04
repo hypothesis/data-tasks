@@ -2,7 +2,7 @@
   "template": "https://github.com/hypothesis/cookiecutters",
   "checkout": null,
   "directory": "pypackage",
-  "ignore": [],
+  "ignore": ["src/data_tasks/core.py", "tests/unit/data_tasks/core_test.py"],
   "extra_context": {
     "name": "data-tasks",
     "package_name": "data_tasks",

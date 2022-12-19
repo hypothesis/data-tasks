@@ -3,7 +3,9 @@ import os
 import pytest
 import sqlalchemy
 
-TEST_SETTINGS = {"database_url": os.environ.get("TEST_DATABASE_URL", "sqlite://")}
+TEST_SETTINGS = {
+    "database_url": os.environ["TEST_DATABASE_URL"],
+}
 
 
 @pytest.fixture(scope="session")

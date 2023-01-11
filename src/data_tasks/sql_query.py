@@ -33,13 +33,10 @@ class SQLQuery:
         """Execute this query in the given session."""
 
         with self.timing.time_it():
-            if not parameters:
-                parameters = {}
-
             if dry_run:
                 return
 
-            cursor = connection.execute(sa.text(self.text), **parameters)
+            cursor = connection.execute(sa.text(self.text), parameters or {})
             if cursor.returns_rows:
                 # pylint:disable=protected-access
                 self.columns = cursor._metadata.keys

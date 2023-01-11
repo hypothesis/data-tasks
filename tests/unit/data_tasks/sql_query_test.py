@@ -70,8 +70,7 @@ class TestSQLQuery:
 
     @fixture
     def connection(self, db_session):
-        with db_session.bind.connect() as connection:
-            yield connection
+        return db_session.bind
 
     @fixture
     def query(self):

@@ -24,6 +24,7 @@
     "__github_url": "https://github.com/hypothesis/data-tasks",
     "__pypi_url": "https://pypi.org/project/data-tasks",
     "__hdev_project_type": "library",
-    "__copyright_year": "2022"
+    "__copyright_year": "2022",
+    "pypi": "yes"
   }
 }

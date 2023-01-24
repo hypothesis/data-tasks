@@ -1,6 +1,17 @@
 name: CI
 on:
   push:
+    paths-ignore:
+      - '.cookiecutter/*'
+      - '.github/dependabot.yml'
+      - 'bin/make_python'
+      - 'bin/make_template'
+      - 'docs/*'
+      - '**/.gitignore'
+      - '.python-version'
+      - 'LICENSE'
+      - '*.md'
+      - 'docker-compose.yml'
   workflow_dispatch:
   workflow_call:
   schedule:

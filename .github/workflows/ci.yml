@@ -55,7 +55,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Create test database
-        run: psql -U postgres -h localhost -p 5439 -c 'CREATE DATABASE data_tasks_test'
+        run: psql -U postgres -h localhost -p 5439 -c 'CREATE DATABASE data_tasks_tests'
       - run: python -m pip install 'tox<4'
       - run: tox -e tests
       - name: Upload coverage file
@@ -96,6 +96,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Create test database
-        run: psql -U postgres -h localhost -p 5439 -c 'CREATE DATABASE data_tasks_test'
+        run: psql -U postgres -h localhost -p 5439 -c 'CREATE DATABASE data_tasks_functests'
       - run: python -m pip install 'tox<4'
       - run: tox -e functests

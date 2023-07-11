@@ -4,7 +4,7 @@ import pytest
 import sqlalchemy
 
 TEST_SETTINGS = {
-    "database_url": os.environ["TEST_DATABASE_URL"],
+    "database_url": os.environ["DATABASE_URL"],
 }
 
 

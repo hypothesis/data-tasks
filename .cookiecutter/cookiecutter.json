@@ -20,6 +20,7 @@
     "devdata": "no",
     "dependabot_pip_interval": "monthly",
     "__postgres_port": "5439",
+    "__postgres_version": "11.5-alpine",
     "__entry_point": "data-tasks",
     "__github_url": "https://github.com/hypothesis/data-tasks",
     "__pypi_url": "https://pypi.org/project/data-tasks",

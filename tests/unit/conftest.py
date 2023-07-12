@@ -2,6 +2,11 @@ import pytest
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 
+from tests.factories.factoryboy_sqlalchemy_session import (
+    clear_factoryboy_sqlalchemy_session,
+    set_factoryboy_sqlalchemy_session,
+)
+
 
 @pytest.fixture
 def db_session(db_engine):
@@ -22,6 +27,7 @@ def db_session(db_engine):
     trans = conn.begin()
     session = sessionmaker()(bind=conn)
     session.begin_nested()
+    set_factoryboy_sqlalchemy_session(session)
 
     @sqlalchemy.event.listens_for(session, "after_transaction_end")
     def restart_savepoint(session, transaction):
@@ -34,6 +40,7 @@ def db_session(db_engine):
     try:
         yield session
     finally:
+        clear_factoryboy_sqlalchemy_session()
         session.close()
         trans.rollback()
         conn.close()

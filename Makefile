@@ -10,13 +10,6 @@ services: args?=up -d --wait
 services: python
 	@docker compose $(args)
 
-.PHONY: db
-$(call help,make db,initialize the DB and upgrade it to the latest migration)
-db: args?=upgrade head
-db: python
-	@tox -qe dev --run-command 'python bin/make_db'
-	@tox -qe dev  --run-command 'alembic $(args)'
-
 .PHONY: devdata
 
 .PHONY: shell

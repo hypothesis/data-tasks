@@ -39,8 +39,8 @@ class SQLQuery:
             cursor = connection.execute(sa.text(self.text), parameters or {})
             if cursor.returns_rows:
                 # pylint:disable=protected-access
-                self.columns = cursor._metadata.keys
-                self.rows = cursor.fetchall()
+                self.columns = cursor._metadata.keys  # type: ignore
+                self.rows = cursor.fetchall()  # type: ignore
 
     def dump(self, indent=""):
         """

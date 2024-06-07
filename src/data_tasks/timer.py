@@ -1,14 +1,15 @@
 from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from typing import Union
 
 
 @dataclass
 class Timer:
-    start_time: datetime = None
+    start_time: Union[datetime, None] = None
     """Time execution began."""
 
-    duration: timedelta = None
+    duration: Union[timedelta, None] = None
     """Duration of query execution."""
 
     @contextmanager

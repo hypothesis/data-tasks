@@ -2,7 +2,7 @@ import textwrap
 from dataclasses import dataclass, field
 from importlib.util import module_from_spec, spec_from_file_location
 from types import ModuleType
-from typing import Any, Optional
+from typing import Any, Optional, Union
 
 from data_tasks.timer import Timer
 
@@ -21,7 +21,7 @@ class PythonScript:
     timing: Timer = field(default_factory=Timer)
     """Timer for query execution."""
 
-    module: ModuleType = None
+    module: Union[ModuleType, None] = None
     """The module loaded from the script."""
 
     result: Optional[Any] = None
@@ -49,7 +49,6 @@ class PythonScript:
         """Execute the python script."""
 
         with self.timing.time_it():
-            # pylint: disable=no-member
             if not dry_run:
                 self.result = self.module.main(connection=connection)
 

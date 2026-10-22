@@ -14,7 +14,9 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-  "sqlalchemy",
+  # SQLAlchemy 2.1 resolves plain postgresql:// URLs to psycopg 3, which
+  # we don't install.
+  "sqlalchemy<2.1",
   "psycopg2",
     "importlib_resources",
     "jinja2",

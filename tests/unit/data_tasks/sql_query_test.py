@@ -44,21 +44,17 @@ class TestSQLQuery:
         # We're not going to assert everything about this. The exact formatting
         # doesn't matter. So this is more of a smoke test to show it's not
         # totally broken
-        assert text.startswith(
-            """>>> 0=> SELECT 'value' AS column
+        assert text.startswith(""">>> 0=> SELECT 'value' AS column
 >>> +----------+
 >>> | column   |
 >>> |----------|
 >>> | value    |
->>> +----------+"""
-        )
+>>> +----------+""")
 
     def test_dump_cleans_secrets(self, query_with_secret):
-        assert query_with_secret.dump().startswith(
-            """0=> SELECT
+        assert query_with_secret.dump().startswith("""0=> SELECT
 0=>             ********** ** **** ** ******
-0=>             'value' AS column"""
-        )
+0=>             'value' AS column""")
 
     def test_dump_works_with_no_rows(self, query_no_rows):
         assert query_no_rows.dump()
